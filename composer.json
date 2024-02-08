@@ -9,10 +9,10 @@
 		"issues": "https://github.com/hlashbrooke/WordPress-Plugin-Template"
 	},
 	"require": {
-		"php": ">=5.4",
-		"squizlabs/php_codesniffer": "^3.8.1"
+		"php": ">=5.4"
     },
 	"require-dev": {
+		"squizlabs/php_codesniffer": "^3.8.1",
         "wp-coding-standards/wpcs": "2.1.*"
     }
 }
