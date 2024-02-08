@@ -11,15 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-      with:
-        submodules: true
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Install PHP dependencies
+    - name: Install PHP dependencies for production
       uses: php-actions/composer@v6
       with:
-        dev: no
         php_version: 8.1
+        args: '--optimize-autoloader --no-dev --profile --ignore-platform-reqs --no-interaction --no-progress --prefer-dist'
 
     - name: Setup node 20
       uses: actions/setup-node@v4
@@ -39,7 +36,7 @@ jobs:
     - name: Upload the artifact
       uses: actions/upload-artifact@v4
       with:
-        name: repository-artifact
+        name: wpcom
         path: |
           .
           !.DS_Store
